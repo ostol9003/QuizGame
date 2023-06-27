@@ -1,6 +1,7 @@
 package Views;
 
 import Model.Question;
+import Service.NewGameService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,14 +19,14 @@ public class NewGame extends JDialog {
     String backgroundPath = "src/Resources/backgroundBlured.jpg";
 
     Background myBackground = new Background(backgroundPath, 600, 600);
-    JTextArea questionText;
+    public JTextArea questionText;
     JButton answer1, answer2, answer3, answer4;
     JFrame mainFrame;
     JPanel panel;
     JLabel scoreLabel;
-    private ArrayList<Question> questions;
-    private int currentQuestionIndex;
-    private int playerScore;
+    NewGameService service;
+
+
 
     public NewGame(JFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -34,7 +35,7 @@ public class NewGame extends JDialog {
     }
 
     private void init() {
-
+        service = new NewGameService(this,mainFrame);
         /*
         a quick check if the server is up, if not, show the player
         that even if he will be the best, he will not go down in history
@@ -55,10 +56,7 @@ public class NewGame extends JDialog {
         setResizable(false);
         myBackground.setBackground(new Color(0, 0, 0, 0));
 
-        questions = new ArrayList<>();
-        questions = Question.loadQuestions("src/Resources/questions.json");
-        currentQuestionIndex = 0;
-        playerScore = 0;
+
 
         panel = new JPanel(new GridBagLayout());
 
@@ -138,7 +136,7 @@ public class NewGame extends JDialog {
         gbc.insets = new Insets(10, 5, 10, 5);
         panel.add(answer4, gbc);
 
-        scoreLabel = new JLabel("Score: " + playerScore);
+        scoreLabel = new JLabel("Score: " + service.getPlayerScore());
         scoreLabel.setFont(new Font("TimesRoman", Font.PLAIN, 18));
         scoreLabel.setForeground(Color.green);
 
@@ -157,7 +155,7 @@ public class NewGame extends JDialog {
             public void windowOpened(WindowEvent e) {
                 mainFrame.setVisible(false);
                 try {
-                    displayNextQuestion();
+                    service.displayNextQuestion(questionText,answer1,answer2,answer3,answer4);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -194,66 +192,13 @@ public class NewGame extends JDialog {
         Object obj = e.getSource();
 
         if (obj == answer1) {
-            checkAnswer(answer1.getText());
+            service.checkAnswer(answer1.getText(),scoreLabel,questionText,answer1,answer2,answer3,answer4);
         } else if (obj == answer2) {
-            checkAnswer(answer2.getText());
+            service.checkAnswer(answer2.getText(),scoreLabel,questionText,answer1,answer2,answer3,answer4);
         } else if (obj == answer3) {
-            checkAnswer(answer3.getText());
+            service.checkAnswer(answer3.getText(),scoreLabel,questionText,answer1,answer2,answer3,answer4);
         } else if (obj == answer4) {
-            checkAnswer(answer4.getText());
+            service.checkAnswer(answer4.getText(),scoreLabel,questionText,answer1,answer2,answer3,answer4);
         }
-    }
-
-    /*
-    Loading qestion to window ( question text and answers buttons )
-    if last answer correct currentQuestionIndex == questions.size --> second option and sending playerName#score to server,
-    server know what to do :)
-     */
-    private void displayNextQuestion() throws IOException {
-        if (currentQuestionIndex < questions.size()) {
-            Question currentQuestion = questions.get(currentQuestionIndex);
-
-            HashMap<String, Boolean> answers = currentQuestion.getAnswers();
-
-            ArrayList<String> answerTexts = new ArrayList<>(answers.keySet());  // loading just answers text to list from hashMap
-
-            questionText.setText(currentQuestion.getQuestion());
-            answer1.setText(answerTexts.get(0));
-            answer2.setText(answerTexts.get(1));
-            answer3.setText(answerTexts.get(2));
-            answer4.setText(answerTexts.get(3));
-
-            currentQuestionIndex++;
-        } else if (currentQuestionIndex == questions.size()) {
-            String name = JOptionPane.showInputDialog(this, "Great! Your score: " + (playerScore), "You won!", JOptionPane.INFORMATION_MESSAGE);
-
-            SendToServer(name + "#" + (playerScore));
-            mainFrame.setVisible(true);
-            dispose();
-
-
-        }
-
-    }
-
-    /*
-    function to check if you choose correct answer or not.
-    if correct pts + 1 if not, player has to write name and send his data to server
-     */
-    private void checkAnswer(String selectedAnswer) throws IOException {
-        Question currentQuestion = questions.get(currentQuestionIndex - 1);
-        if (currentQuestion.isCorrectAnswer(selectedAnswer)) {
-            playerScore++;
-            scoreLabel.setText("Score: " + playerScore);
-            displayNextQuestion();
-        } else if (!currentQuestion.isCorrectAnswer(selectedAnswer)) {
-            String name = JOptionPane.showInputDialog(this, "Game Over! Your score: " + playerScore + ". Write Your name:", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-            SendToServer(name + "#" + playerScore);
-            dispose();
-            mainFrame.setVisible(true);
-
-        }
-
-
     }
 }

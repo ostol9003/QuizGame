@@ -1,0 +1,182 @@
+{
+  "1": {
+    "question": "What is the name of Harry Potter's best friend?",
+    "answers": {
+      "Ron Weasley": false,
+      "Hermione Granger": true,
+      "Draco Malfoy": false,
+      "Neville Longbottom": false
+    }
+  },
+  "2": {
+    "question": "What is the name of the school Harry Potter attends?",
+    "answers": {
+      "Hogwarts School of Witchcraft and Wizardry": true,
+      "Beauxbatons Academy of Magic": false,
+      "Durmstrang Institute": false,
+      "Ilvermorny School of Witchcraft and Wizardry": false
+    }
+  },
+  "3": {
+    "question": "What position does Harry Potter play in Quidditch?",
+    "answers": {
+      "Seeker": true,
+      "Chaser": false,
+      "Keeper": false,
+      "Beater": false
+    }
+  },
+  "4": {
+    "question": "Who is the author of the Harry Potter book series?",
+    "answers": {
+      "J.R.R. Tolkien": false,
+      "J.K. Rowling": true,
+      "C.S. Lewis": false,
+      "Roald Dahl": false
+    }
+  },
+  "5": {
+    "question": "What is the name of the sport played on broomsticks in the Harry Potter series?",
+    "answers": {
+      "Quodpot": false,
+      "Bludgers": false,
+      "Quidditch": true,
+      "Snitch": false
+    }
+  },
+  "6": {
+    "question": "Who is the headmaster of Hogwarts during Harry Potter's time at the school?",
+    "answers": {
+      "Albus Dumbledore": true,
+      "Severus Snape": false,
+      "Minerva McGonagall": false,
+      "Rubeus Hagrid": false
+    }
+  },
+  "7": {
+    "question": "What is the name of the evil wizard who killed Harry Potter's parents?",
+    "answers": {
+      "Voldemort": true,
+      "Grindelwald": false,
+      "Bellatrix Lestrange": false,
+      "Lucius Malfoy": false
+    }
+  },
+  "8": {
+    "question": "What is the name of the train that takes students to Hogwarts?",
+    "answers": {
+      "Hogwarts Express": true,
+      "Orient Express": false,
+      "Knight Bus": false,
+      "Thestrals": false
+    }
+  },
+  "9": {
+    "question": "Which magical creature guards the entrance to the Gryffindor common room?",
+    "answers": {
+      "Basilisk": false,
+      "Hippogriff": false,
+      "Thestral": false,
+      "Fat Lady": true
+    }
+  },
+  "10": {
+    "question": "What is the name of Harry Potter's owl?",
+    "answers": {
+      "Hedwig": true,
+      "Crookshanks": false,
+      "Pigwidgeon": false,
+      "Errol": false
+    }
+  },
+  "11": {
+    "question": "Who is the Defense Against the Dark Arts teacher in Harry Potter and the Philosopher's Stone?",
+    "answers": {
+      "Severus Snape": false,
+      "Remus Lupin": false,
+      "Quirinus Quirrell": true,
+      "Gilderoy Lockhart": false
+    }
+  },
+  "12": {
+    "question": "What is the name of the gamekeeper at Hogwarts?",
+    "answers": {
+      "Rubeus Hagrid": true,
+      "Alastor Moody": false,
+      "Argus Filch": false,
+      "Wilhelmina Grubbly-Plank": false
+    }
+  },
+  "13": {
+    "question": "What is the name of the Weasley family's house-elf?",
+    "answers": {
+      "Dobby": true,
+      "Kreacher": false,
+      "Winky": false,
+      "Hokey": false
+    }
+  },
+  "14": {
+    "question": "What is the name of the mirror that shows the viewer's deepest desire?",
+    "answers": {
+      "Mirror of Erised": true,
+      "Sorcerer's Stone": false,
+      "Pensieve": false,
+      "Marauder's Map": false
+    }
+  },
+  "15": {
+    "question": "What is the name of the Triwizard Tournament held in Harry Potter and the Goblet of Fire?",
+    "answers": {
+      "Quidditch World Cup": false,
+      "Wizarding Games": false,
+      "Magical Olympics": false,
+      "Triwizard Tournament": true
+    }
+  },
+  "16": {
+    "question": "Who is the potions professor at Hogwarts?",
+    "answers": {
+      "Severus Snape": true,
+      "Horace Slughorn": false,
+      "Pomona Sprout": false,
+      "Filius Flitwick": false
+    }
+  },
+  "17": {
+    "question": "What is the name of the house-elf who serves the Malfoy family?",
+    "answers": {
+      "Dobby": false,
+      "Kreacher": true,
+      "Winky": false,
+      "Hokey": false
+    }
+  },
+  "18": {
+    "question": "What is the name of the wizarding bank in the Harry Potter series?",
+    "answers": {
+      "Gringotts": true,
+      "Eeylops Owl Emporium": false,
+      "Ollivander's": false,
+      "Honeydukes": false
+    }
+  },
+  "19": {
+    "question": "What is the name of the Weasley family's flying car?",
+    "answers": {
+      "Ford Anglia": true,
+      "Nimbus 2000": false,
+      "Firebolt": false,
+      "Thunderbolt": false
+    }
+  },
+  "20": {
+    "question": "What is the name of the ghost who haunts the girls' bathroom at Hogwarts?",
+    "answers": {
+      "Moaning Myrtle": true,
+      "Nearly Headless Nick": false,
+      "The Grey Lady": false,
+      "The Fat Friar": false
+    }
+  }
+}
